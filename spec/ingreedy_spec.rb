@@ -246,6 +246,22 @@ describe Ingreedy, "container as part of quantity" do
   end
 end
 
+describe Ingreedy, "with ambiguous ingredient quantities" do
+  it "parses correctly" do
+    result = Ingreedy.parse "Kosher salt"
+
+    expect(result.amount).to be_nil
+    expect(result.unit).to be_nil
+    expect(result.ingredient).to eq("Kosher salt")
+
+    result = Ingreedy.parse "nonstick cooking spray"
+
+    expect(result.amount).to be_nil
+    expect(result.unit).to be_nil
+    expect(result.ingredient).to eq("nonstick cooking spray")
+  end
+end
+
 describe Ingreedy, "with 'a' as quantity and preposition 'of'" do
   it "parses correctly" do
     result = Ingreedy.parse "a dash of ginger"
@@ -399,13 +415,5 @@ end
 describe Ingreedy, "ingredient formatting" do
   it "strips preceding or trailing whitespace" do
     expect(Ingreedy.parse("1 cup flour ").ingredient).to eq("flour")
-  end
-end
-
-describe Ingreedy, "error handling" do
-  it "wraps Parslet exceptions in a custom exception" do
-    expect do
-      Ingreedy.parse("nonsense")
-    end.to raise_error Ingreedy::ParseFailed
   end
 end

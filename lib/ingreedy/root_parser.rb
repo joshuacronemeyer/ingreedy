@@ -90,8 +90,12 @@ module Ingreedy
         quantity
     end
 
+    rule(:unitless) do
+      any.repeat.as(:ingredient)
+    end
+
     rule(:ingredient_addition) do
-      standard_format | reverse_format
+      standard_format | reverse_format | unitless
     end
 
     root :ingredient_addition
