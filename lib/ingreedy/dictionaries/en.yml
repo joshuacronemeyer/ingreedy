@@ -110,6 +110,46 @@
   :can:
     - "cans"
     - "can"
+  :jar:
+    - "jars"
+    - "jar"
+  :bottle:
+    - "bottles"
+    - "bottle"
+  :package:
+    - "packages"
+    - "package"
+  :head:
+    - "heads"
+    - "head"
+  :cube:
+    - "cubes"
+    - "cube"
+  :ear:
+    - "ears"
+    - "ear"
+  :bunch:
+    - "bunches"
+    - "bunch"
+  :slice:
+    - "slices"
+    - "slice"
+  :link:
+    - "links"
+    - "link"
+  :container:
+    - "containers"
+    - "container"
+  :piece:
+    - "pieces"
+    - "piece"
+  :sprig:
+    - "sprigs"
+    - "sprig"
+  :half:
+    - "halves"
+    - "halved"
+    - "half"
   :to_taste:
     - "to taste"
 :numbers:
