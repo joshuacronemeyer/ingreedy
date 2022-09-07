@@ -33,7 +33,7 @@ module Ingreedy
       if defined?(Rails)
         I18n.locale = locale
         rails_data = I18n.t(:units)
-        ingreedy_data = rails_data.reverse_merge!(ingreedy_data)
+        ingreedy_data = {units: rails_data}.reverse_merge!(ingreedy_data)
       end
       ingreedy_data
     rescue Errno::ENOENT
