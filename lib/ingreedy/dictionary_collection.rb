@@ -29,7 +29,13 @@ module Ingreedy
       path = File.expand_path(
         File.join(File.dirname(__FILE__), "dictionaries", "#{locale}.yml"),
       )
-      YAML.load_file(path)
+      ingreedy_data = YAML.load_file(path)
+      if defined?(Rails)
+        I18n.locale = locale
+        rails_data = I18n.t(:units)
+        ingreedy_data = rails_data.reverse_merge!(ingreedy_data)
+      end
+      ingreedy_data
     rescue Errno::ENOENT
       raise "No dictionary found for :#{locale} locale"
     end
